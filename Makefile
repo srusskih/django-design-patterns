@@ -1,6 +1,6 @@
 # Makefile for Sphinx documentation
 #
-
+ 
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
@@ -55,6 +55,17 @@ latex:
 	@echo "Build finished; the LaTeX files are in build/latex."
 	@echo "Run \`make all-pdf' or \`make all-ps' in that directory to" \
 	      "run these through (pdf)latex."
+latexpdf:
+
+	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) build/latex
+	@echo "Running LaTeX files through pdflatex..."
+	make -C build/latex all-pdf
+	@echo "pdflatex finished; the PDF files are in build/latex."
+
+epub:
+	$(SPHINXBUILD) -b epub $(ALLSPHINXOPTS) build/epub
+	@echo
+	@echo "Build finished. The epub file is in build/epub."
 
 changes:
 	mkdir -p build/changes build/doctrees
